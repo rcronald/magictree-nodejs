@@ -34,6 +34,33 @@ module.exports.routes = {
 
   '/': {
     view: 'homepage'
+  },
+  '/homepage':{
+    view: 'homepage'
+  },
+  '/aboutus':{
+    view: 'aboutus'
+  },
+  '/library':{
+    view: 'library'
+  },
+  '/news':{
+    view: 'news'
+  },
+  '/blog':{
+    view: 'blog'
+  },
+  '/contactus':{
+    view: 'contactus'
+  },
+  '/medicinaltrees':{
+    view: 'medicinal-trees'
+  },
+  '/ornamentaltrees':{
+    view: 'ornamental-trees'
+  },
+  '/fruitbearingtrees':{
+    view: 'fruitbearing-trees'
   }
 
   /***************************************************************************
