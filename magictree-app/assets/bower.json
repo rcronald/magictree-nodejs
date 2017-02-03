@@ -1,0 +1,20 @@
+{
+  "name": "magictree-app",
+  "homepage": "https://github.com/rcronald/magictree-nodejs",
+  "authors": [
+    "rrequena@mobitecsolutions.com <rrequena@mobitecsolutions.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.6.1"
+  }
+}

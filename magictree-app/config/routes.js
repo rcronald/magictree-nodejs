@@ -61,7 +61,7 @@ module.exports.routes = {
   },
   '/fruitbearingtrees':{
     view: 'fruitbearing-trees'
-  }
+  },
 
   /***************************************************************************
   *                                                                          *
@@ -72,5 +72,25 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
+  'get /features': {
+    controller: "FeaturesController",
+    action: "list"
+  },
+  'get /features/:id': {
+    controller: "FeaturesController",
+    action: "details"
+  },
+  'post /features': {
+    controller: "FeaturesController",
+    action: "insert"
+  },
+  'put /features/:id': {
+    controller: "FeaturesController",
+    action: "update"
+  },
+  'delete /features/:id': {
+    controller: "FeaturesController",
+    action: "delete"
+  }
 
 };
