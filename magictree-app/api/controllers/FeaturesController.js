@@ -11,7 +11,7 @@ module.exports = {
 		Features
 			.find()
 			.then(function(records){
-				res.json({records: records});
+				res.json(records);
 			})
 			.catch(function(err){
 				res.negotiate(err);

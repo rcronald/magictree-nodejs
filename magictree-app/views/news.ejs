@@ -3,14 +3,24 @@
 	<% include sidebar-menu %>
 
 	<div id="content">
-	  <% include header %>
+	  	<% include header %>
 	  
-	  <!--BODY-->
-
+	  	<!--BODY-->
+	  	<div class="body">
+		  	<div class="content" ng-controller="featuresController as fctrl">
+			  	<h2>News</h2>
+				<ul class="news">
+					<li ng-repeat="feature in fctrl.features">
+						<h1> <a href="library.html">{{feature.name}}</a> </h1>
+						<img ng-src="images/{{feature.picture}}" width="279" height="140" alt="">
+						<p>
+							{{feature.description}}
+						</p>
+					</li>
+				</ul>
+			</div>
+		</div>
 	</div>
-
-
-	<% include featured %>
 
 
 </div>

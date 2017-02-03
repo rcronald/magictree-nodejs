@@ -1,24 +1,10 @@
-<div class="featured" ng-controller="">
+<div class="featured" ng-controller="featuresController as fctrl">
   <ul>
-    <li>
-      <h2> <a href="index.html">Environmental Developers</a> </h2>
-      <img src="images/developers.jpg" width="280" height="140" alt="">
+    <li ng-repeat="feature in fctrl.features">
+      <h2> <a href="index.html">{{feature.name}}</a> </h2>
+      <img ng-src="/images/{{feature.picture}}" width="280" height="140" alt="">
       <p>
-        This website template has been designed by freewebsitetemplates for you, for free. You can replace all this text with your own text.
-      </p>
-    </li>
-    <li>
-      <h2> <a href="index.html">Landscaping Areas</a> </h2>
-      <img src="images/golf-court.jpg" width="280" height="140" alt="">
-      <p>
-        This website template has been designed by freewebsitetemplates for you, for free. You can replace all this text with your own text.
-      </p>
-    </li>
-    <li>
-      <h2> <a href="index.html">Tress that helps</a> </h2>
-      <img src="images/trees.jpg" width="280" height="140" alt="">
-      <p>
-        This website template has been designed by freewebsitetemplates for you, for free. You can replace all this text with your own text.
+        {{feature.description}}
       </p>
     </li>
   </ul>
