@@ -23,6 +23,17 @@ app.controller("featuresController", ["featuresFactory", function(featuresFactor
 }])
 
 
-app.controller("webController", [function(){
-	this.pageVisited = ""
+app.controller("webController", ["$location", function($location){
+	this.visitedPage = "homepage"
+
+	this.swichVisitedPage = function(url){
+		var page = url.split("/").pop();
+		this.visitedPage = page
+	}
+
+	this.getPage = function(){
+		var url = $location.absUrl()
+		var page = url.split("/").pop();
+		return page
+	}
 }])

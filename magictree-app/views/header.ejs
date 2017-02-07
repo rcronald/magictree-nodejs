@@ -1,22 +1,22 @@
-<div id="header" ng-controller="webController">
+<div id="header" ng-controller="webController as wctrl">
 	<ul class="navigation">
  		<li class="first">
-    		<a class="active" href="homepage">Home</a>
+    		<a ng-class="wctrl.getPage()=='homepage' || wctrl.getPage()=='' ? 'active' : ''" href="homepage" ng-click="wctrl.swichVisitedPage($event.target.href)" ng-mouseover="alert($event.target.href)">Home</a>
   		</li>
   		<li>
-			<a href="aboutus">About us</a>
+			<a ng-class="wctrl.getPage()=='aboutus' ? 'active' : ''" href="aboutus" ng-click="wctrl.swichVisitedPage($event.target.href)">About us</a>
 		</li>
 		<li>
-			<a href="library">Library</a>
+			<a ng-class="wctrl.getPage()=='library' ? 'active' : ''" href="library" ng-click="wctrl.swichVisitedPage($event.target.href)">Library</a>
 		</li>
 		<li>
-			<a href="news">News</a>
+			<a ng-class="wctrl.getPage()=='news' ? 'active' : ''" href="news" ng-click="wctrl.swichVisitedPage($event.target.href)">News</a>
 		</li>
 		<li>
-			<a href="blog">Blog</a>
+			<a ng-class="wctrl.getPage()=='blog' ? 'active' : ''" href="blog" ng-click="wctrl.swichVisitedPage($event.target.href)">Blog</a>
 		</li>
 		<li>
-			<a href="contactus">Contact Us</a>
+			<a ng-class="wctrl.getPage()=='contactus' ? 'active' : ''" href="contactus" ng-click="wctrl.swichVisitedPage($event.target.href)">Contact Us</a>
 		</li>
 	</ul>
 </div>
