@@ -1,14 +1,14 @@
 /**
- * TreeCategoriesController
+ * TreesController
  *
- * @description :: Server-side logic for managing Treecategories
+ * @description :: Server-side logic for managing Trees
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
 module.exports = {
 	
 	list: function(req, res){
-		TreeCategories
+		Trees
 			.find()
 			.then(function(records){
 				res.json(records);
@@ -19,7 +19,7 @@ module.exports = {
 	},
 	paginatedList: function(req, res){
 		var paginated = {page: req.params.pagina, limit: req.params.tamano};
-		TreeCategories
+		Trees
 			.find()
 			.paginate(paginado)
 			.then(function(records){
@@ -30,7 +30,7 @@ module.exports = {
 			});
 	},
 	count: function(req, res) {
-		TreeCategories
+		Trees
 			.count()
 			.then(function(quantity){
 				res.json({quantity: quantity});
@@ -41,7 +41,7 @@ module.exports = {
 	},
 	insert: function(req, res){
 		var data = req.allParams();
-		TreeCategories
+		Trees
 			.create(data)
 			.then(function(records){
 				res.ok();
@@ -53,7 +53,7 @@ module.exports = {
 	update: function(req, res){
 		var data = req.allParams();
 		var filtro = {id: req.params.id};
-		TreeCategories
+		Trees
 			.update(filtro, data)
 			.then(function(records){
 				res.ok();
@@ -64,7 +64,7 @@ module.exports = {
 	},
 	delete: function(req, res){
 		var filtro = {id: req.params.id};
-		TreeCategories
+		Trees
 			.destroy(filtro)
 			.then(function(records){
 				res.ok();
@@ -75,7 +75,7 @@ module.exports = {
 	},
 	details: function(req, res) {
 		var filtro = {id: req.params.id};
-		TreeCategories
+		Trees
 			.find()
 			.where(filtro)
 			.then(function(records){
@@ -86,3 +86,4 @@ module.exports = {
 			});
 	}
 };
+

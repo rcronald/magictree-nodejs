@@ -1,4 +1,5 @@
 
+// Features Controller
 app.controller("featuresController", ["featuresFactory", function(featuresFactory){
 	var self = this
 	this.features = []
@@ -23,6 +24,7 @@ app.controller("featuresController", ["featuresFactory", function(featuresFactor
 }])
 
 
+// Web Controller
 app.controller("webController", ["$location", function($location){
 	this.visitedPage = "homepage"
 
