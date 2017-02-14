@@ -79,3 +79,30 @@ app.controller("treesController", ["treesFactory", function(treesFactory){
 		
 }])
 
+
+// ContactUs Controller
+app.controller("contactController", ["contactFactory", function(contactFactory){
+	var self = this
+	this.formContact = {}
+	this.messageSent = false
+	//this.contactEmail = ""
+	//this.contactName = ""
+	//this.contactSubject = ""
+	//this.contactMessage = ""
+
+	this.sendContact = function(){
+		console.log("sendContact")
+		console.log(this.formContact)
+
+		contactFactory
+			.sendContact(this.formContact)
+			.then(function(records){
+				self.messageSent = true
+			})
+			.catch(function(err){
+				console.log(err)
+			})
+	}
+	
+}])
+

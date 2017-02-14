@@ -88,3 +88,16 @@ app.factory("treesFactory", ["$http", function(http){
 
 	return factoryBuilder
 }])
+
+
+// Contact factory
+app.factory("contactFactory", ["$http", function(http){
+	var factoryBuilder = {}
+	var API_HOSTNAME = "http://localhost:1337"
+
+	factoryBuilder.sendContact = function(form){
+		return http.post(API_HOSTNAME + "/contact", form)
+	}
+
+	return factoryBuilder
+}])

@@ -138,6 +138,12 @@ module.exports.routes = {
   'delete /trees/:id': {
     controller: "TreesController",
     action: "delete"
+  },
+
+  /****CONTACT****/
+  'post /contact': {
+    controller: "ContactController",
+    action: "saveContact"
   }
 
 };

@@ -6,27 +6,32 @@
 	  <% include header %>
 	  
 	  <!--BODY-->
-		<div class="body">
-			<div class="content">
+		<div class="body" ng-controller="contactController as cctrl">
+			<div class="content" ng-hide="cctrl.messageSent">
 				<h2>We want to hear from you</h2>
 				<p>
 					This website template has been designed by <a href="http://www.freewebsitetemplates.com/">freewebsitetemplates</a> for you, for free. You can replace all this text with your own text.
 				</p>
-				<form action="#">
 					<label for="name"><span>Name</span>
-						<input type="text" id="name">
+						<input type="text" ng-model="cctrl.formContact.contactName">
 					</label>
 					<label for="email"><span>Email Add</span>
-						<input type="text" id="email">
+						<input type="text" ng-model="cctrl.formContact.contactEmail">
 					</label>
 					<label for="subject"><span>Subject</span>
-						<input type="text" id="subject">
+						<input type="text" g-model="cctrl.formContact.contactSubject">
 					</label>
 					<label for="message">
-						<textarea id="message"></textarea>
+						<textarea ng-model="cctrl.formContact.contactMessage"></textarea>
 					</label>
-					<input type="submit" value="">
-				</form>
+					<button ng-click="cctrl.sendContact()">Send</button>
+			</div>
+
+			<div class="content" ng-show="cctrl.messageSent">
+				<h2>Thank you</h2>
+				<p>
+					For contact us. A team member will contact you tomorrow with a detailed explanation of the product that fits your business need.
+				</p>
 			</div>
 		</div>
 
