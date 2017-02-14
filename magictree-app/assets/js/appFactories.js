@@ -57,29 +57,33 @@ app.factory("treeCategoriesFactory", ["$http", function(http){
 }])
 
 
-// TreeCategories Factory
-app.factory("treeCategoriesFactory", ["$http", function(http){
+// Trees Factory
+app.factory("treesFactory", ["$http", function(http){
 	var factoryBuilder = {}
 	var API_HOSTNAME = "http://localhost:1337"
 
 	factoryBuilder.list = function(){
-		return http.get(API_HOSTNAME + "/treeCategories")
+		return http.get(API_HOSTNAME + "/trees")
+	}
+
+	factoryBuilder.list = function(categoryId){
+		return http.get(API_HOSTNAME + "/trees/"+ categoryId + "/list")
 	}
 
 	factoryBuilder.details = function(id){
-		return http.get(API_HOSTNAME + "/treeCategories/" + id)
+		return http.get(API_HOSTNAME + "/trees/" + id)
 	}
 
 	factoryBuilder.insert = function(treeCategorie){
-		return http.post(API_HOSTNAME + "/treeCategories", treeCategorie)
+		return http.post(API_HOSTNAME + "/trees", treeCategorie)
 	}
 
 	factoryBuilder.update = function(treeCategorie, id){
-		return http.put(API_HOSTNAME + "/treeCategories/" + id, treeCategorie)
+		return http.put(API_HOSTNAME + "/trees/" + id, treeCategorie)
 	}
 
 	factoryBuilder.delete = function(id){
-		return http.delete(API_HOSTNAME + "/treeCategories/" + id)
+		return http.delete(API_HOSTNAME + "/trees/" + id)
 	}
 
 	return factoryBuilder

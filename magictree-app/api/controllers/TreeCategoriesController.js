@@ -10,6 +10,7 @@ module.exports = {
 	list: function(req, res){
 		TreeCategories
 			.find()
+			.populate("trees")
 			.then(function(records){
 				res.json(records);
 			})

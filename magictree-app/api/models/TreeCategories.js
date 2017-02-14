@@ -10,7 +10,11 @@ module.exports = {
   connection : "someMongodbServer",
   attributes: {
   	name: "String",
-  	description: "String"
+  	description: "String",
+  	trees: {
+  		collection: "Trees",
+  		via: "treeCategory"
+  	}
   }
 };
 

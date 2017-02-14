@@ -1,13 +1,8 @@
-<div id="sidebar"> <a id="logo" href="index.html">&nbsp;</a>
+<div id="sidebar" ng-controller = "treeCategoriesController as tcctrl"> 
+  <a id="logo" href="index.html">&nbsp;</a>
   <ul>
-    <li>
-      <a href="medicinaltrees">Medicinal Trees</a>
-    </li>
-    <li>
-      <a href="ornamentaltrees">Ornamental <span>Trees</span></a>
-    </li>
-    <li>
-      <a href="fruitbearingtrees">Fruit Bearing <span>Trees</span></a>
+    <li ng-repeat="category in tcctrl.categories">
+      <a ng-href="treeCategory?categoryId={{category.id}}">{{category.name}}</a>
     </li>
   </ul>
 </div>

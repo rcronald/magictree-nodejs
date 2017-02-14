@@ -53,14 +53,11 @@ module.exports.routes = {
   '/contactus':{
     view: 'contactus'
   },
-  '/medicinaltrees':{
-    view: 'medicinal-trees'
+  '/treeCategory':{
+    view: 'treeCategory'
   },
-  '/ornamentaltrees':{
-    view: 'ornamental-trees'
-  },
-  '/fruitbearingtrees':{
-    view: 'fruitbearing-trees'
+  '/tree':{
+    view: 'tree'
   },
 
   /***************************************************************************
@@ -72,6 +69,8 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
+  
+  /****FEATURES****/
   'get /features': {
     controller: "FeaturesController",
     action: "list"
@@ -90,6 +89,54 @@ module.exports.routes = {
   },
   'delete /features/:id': {
     controller: "FeaturesController",
+    action: "delete"
+  },
+
+  /****TREECATEGORIES****/
+  'get /treeCategories': {
+    controller: "TreeCategoriesController",
+    action: "list"
+  },
+  'get /treeCategories/:id': {
+    controller: "TreeCategoriesController",
+    action: "details"
+  },
+  'post /treeCategories': {
+    controller: "TreeCategoriesController",
+    action: "insert"
+  },
+  'put /treeCategories/:id': {
+    controller: "TreeCategoriesController",
+    action: "update"
+  },
+  'delete /treeCategories/:id': {
+    controller: "TreeCategoriesController",
+    action: "delete"
+  },
+
+  /****TREES****/
+  'get /trees': {
+    controller: "TreesController",
+    action: "list"
+  },
+  'get /trees/:categoryId/list': {
+    controller: "TreesController",
+    action: "listByCategory"
+  },
+  'get /trees/:id': {
+    controller: "TreesController",
+    action: "details"
+  },
+  'post /trees': {
+    controller: "TreesController",
+    action: "insert"
+  },
+  'put /trees/:id': {
+    controller: "TreesController",
+    action: "update"
+  },
+  'delete /trees/:id': {
+    controller: "TreesController",
     action: "delete"
   }
 

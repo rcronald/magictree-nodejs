@@ -10,8 +10,21 @@ module.exports = {
 	list: function(req, res){
 		Trees
 			.find()
+			.populate("treeCategory")
 			.then(function(records){
 				res.json(records);
+			})
+			.catch(function(err){
+				res.negotiate(err);
+			});
+	},
+	listByCategory: function(req, res) {
+		var filtro = {treeCategory: req.params.categoryId};
+		Trees
+			.find()
+			.where(filtro)
+			.then(function(records){
+				res.json({records: records});
 			})
 			.catch(function(err){
 				res.negotiate(err);

@@ -6,11 +6,11 @@
 	  <% include header %>
 	  
 	  <!--BODY-->
-	  	<div class="body" ng-controller="treeCategoriesController as tcctrl">
+	  	<div class="body" ng-controller="treeCategoriesController as tcctrl" ng-init="tcctrl.getCategoryId()">
 			<div class="content">
 				<h2>Tree Library</h2>
 				<ul>
-					<li ng-repeat="category in tcctrl.categories">
+					<li ng-repeat="category in tcctrl.categories | filter: {id: tcctrl.getCategoryId()}">
 						<h4> <a href="#">{{category.name}}</a> </h4>
 						<ul>
 							<li ng-repeat="tree in category.trees">

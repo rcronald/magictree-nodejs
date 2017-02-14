@@ -9,17 +9,11 @@ app.controller("featuresController", ["featuresFactory", function(featuresFactor
 	featuresFactory
 		.list()
 		.then(function(features){
-			console.log("list")
-			console.log(features)
 			self.features = features.data
 		})
 		.catch(function(err){
 			console.log(err)
 		})
-
-
-
-
 
 }])
 
@@ -39,3 +33,49 @@ app.controller("webController", ["$location", function($location){
 		return page
 	}
 }])
+
+
+// TreeCategories Controller
+app.controller("treeCategoriesController", ["treeCategoriesFactory", "$location", function(treeCategoriesFactory, $location){
+	var self = this
+	this.categories = []
+	this.category = { }
+
+	treeCategoriesFactory
+		.list()
+		.then(function(treeCategories){
+			self.categories = treeCategories.data
+		})
+		.catch(function(err){
+			console.log(err)
+		})
+
+
+	this.getCategoryId = function(){
+		var url = $location.absUrl()
+		var page = url.split("/").pop();
+		return page.split("=").pop();
+	}
+		
+}])
+
+
+// Tree Controller
+app.controller("treesController", ["treesFactory", function(treesFactory){
+	var self = this
+	this.trees = []
+	this.tree = { }
+	this.categoryId = ""
+
+	treeFactory
+		.list(this.categoryId)
+		.then(function(trees){
+			self.trees = trees.data
+		})
+		.catch(function(err){
+			console.log(err)
+		})
+	
+		
+}])
+
