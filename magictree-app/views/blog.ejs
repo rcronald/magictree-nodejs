@@ -6,6 +6,27 @@
 	  <% include header %>
 	  
 	  <!--BODY-->
+	  	<div class="body" ng-controller="blogController as bctrl">
+			<div class="content">
+				<ul class="section">
+					<li ng-repeat="post in bctrl.posts">
+						<h1>
+							<span>Dec 3</span> <a href="blog.html">{{post.title}}</a>
+						</h1>
+						<span class="connect"> 
+							<a class="heart" href="#">&nbsp;</a> 
+							<a class="twitter" href="http://www.freewebsitetemplates.com/go/twitter/">&nbsp;</a> 
+							<a class="facebook" href="http://www.freewebsitetemplates.com/go/facebook/">&nbsp;</a> 
+						</span>
+						<p>
+							{{post.body[0]}}
+						</p>
+					</li>
+				</ul>
+				<a class="previous" href="blog.html">Add New Post</a> 
+				<a class="next" href="blog.html">See All Post</a> 
+			</div>
+		</div>
 
 	</div>
 

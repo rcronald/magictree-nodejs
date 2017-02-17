@@ -101,3 +101,32 @@ app.factory("contactFactory", ["$http", function(http){
 
 	return factoryBuilder
 }])
+
+
+// Posts Factory
+app.factory("postsFactory", ["$http", function(http){
+	var factoryBuilder = {}
+	var API_HOSTNAME = "https://s3-us-west-2.amazonaws.com/s.cdpn.io/110131"
+
+	factoryBuilder.list = function(){
+		return http.get(API_HOSTNAME + "/posts_1.json")
+	}
+
+	factoryBuilder.details = function(id){
+		return http.get(API_HOSTNAME + "/blog/" + id)
+	}
+
+	factoryBuilder.insert = function(post){
+		return http.post(API_HOSTNAME + "/blogs", blog)
+	}
+
+	factoryBuilder.update = function(post, id){
+		return http.put(API_HOSTNAME + "/blogs/" + id, post)
+	}
+
+	factoryBuilder.delete = function(id){
+		return http.delete(API_HOSTNAME + "/blogs/" + id)
+	}
+
+	return factoryBuilder
+}])

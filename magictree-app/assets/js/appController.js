@@ -106,3 +106,21 @@ app.controller("contactController", ["contactFactory", function(contactFactory){
 	
 }])
 
+
+app.controller("blogController", ["postsFactory", function(postsFactory){
+	var self = this
+	this.posts = []
+	this.post = {}
+
+	postsFactory
+		.list()
+		.then(function(posts){
+			self.posts = posts.data
+		})
+		.catch(function(err){
+			console.log(err)
+		})
+
+
+
+}])
