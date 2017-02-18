@@ -29,6 +29,7 @@ app.controller("webController", ["$location", function($location){
 
 	this.getPage = function(){
 		var url = $location.absUrl()
+		//console.log($location)
 		var page = url.split("/").pop();
 		return page
 	}

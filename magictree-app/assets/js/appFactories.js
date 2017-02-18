@@ -1,6 +1,6 @@
 
 // Features Factory
-app.factory("featuresFactory", ["$http", function(http){
+app.factory("featuresFactory", ["$http", "$location", function(http, location){
 	var factoryBuilder = {}
 	var API_HOSTNAME = "http://localhost:1337"
 
