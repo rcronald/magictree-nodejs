@@ -2,29 +2,98 @@
 
 	<% include sidebar-blog %>
 
-	<div id="content">
+	<div id="content" ng-controller="blogController as bctrl">
 	  <% include header %>
 	  
 	  <!--BODY-->
-	  	<div class="body" ng-controller="blogController as bctrl">
+	  	<div class="body">
 			<div class="content">
-				<ul class="section">
+				<h2>Blog</h2>
+				<a class="previous" href="#" ng-click="bctrl.selectTab('new')">Add New Post</a> 
+				<a class="next" href="#" ng-click="bctrl.selectTab('blog')">See All</a> 
+
+
+				<ul class="section" ng-show="bctrl.isSelected('blog')">
 					<li ng-repeat="post in bctrl.posts">
 						<h1>
-							<span>Dec 3</span> <a href="blog.html">{{post.title}}</a>
+							<span>Dec 3</span> 
+							<a href="#" ng-click="bctrl.selectTab($index)">{{post.title}}</a>
 						</h1>
 						<span class="connect"> 
 							<a class="heart" href="#">&nbsp;</a> 
 							<a class="twitter" href="http://www.freewebsitetemplates.com/go/twitter/">&nbsp;</a> 
 							<a class="facebook" href="http://www.freewebsitetemplates.com/go/facebook/">&nbsp;</a> 
 						</span>
+						<!--p ng-repeat="paragraph in post.body">
+			               {{paragraph}}
+			            </p--> 
 						<p>
 							{{post.body[0]}}
 						</p>
 					</li>
 				</ul>
-				<a class="previous" href="blog.html">Add New Post</a> 
-				<a class="next" href="blog.html">See All Post</a> 
+
+
+
+
+				<div class="post" ng-repeat="post in bctrl.posts" ng-show="bctrl.isSelected($index)">
+					<div>
+
+						<h2>{{post.title}}</h2>
+						<!--img src="{{post.image}}" ng-show="{{post.image}}"/-->
+						<cite>by {{post.author}} on {{post.createdOn | date}}</cite>
+						<div class="post-body">
+							<p ng-repeat="paragraph in post.body">
+						   		{{paragraph}}
+						 	</p> 
+						</div>
+
+						<div class="comments" ng-controller="commentController as commentCtrl">
+						 	<button class="fa fa-heart" ng-click="post.likes = post.likes+1"> {{post.likes}}</button>
+						  	<h3>Comments</h3>
+						  	<ul>
+							   	<li ng-repeat="comment in post.comments">
+							    	 "{{comment.body}}"
+							     	<cite>- <b>{{comment.author}}</b></cite>
+							   	</li>
+						  	</ul>
+						  	<form name="commentForm" ng-submit="commentForm.$valid && commentCtrl.addComment(post)" novalidate>
+						    	<h4>Add Comment</h4>
+						      	<textarea ng-model="commentCtrl.comment.body" cols="30" rows="10" required></textarea>
+						    	
+						    	<label for="">by:</label>
+						      	<input type="text" ng-model="commentCtrl.comment.author" required placeholder="Name"/>
+						      
+						      	<br>
+						      	<input type="submit" value="" />
+						    </form>
+						</div>
+					</div>
+				</div>
+
+
+
+
+				<div class="post" ng-show="bctrl.isSelected('new')">
+	          		<h3>Add New Post</h3>
+	          
+	          		<form name="postForm" ng-submit=" bctrl.addPost()" novalidate>
+	                	<h4>Title</h4>
+	                  	<input type="text" ng-model="bctrl.post.title"/>
+	                  	<h4>Body</h4>
+	                  	<textarea ng-model="bctrl.post.body" ng-list="/\n/" rows="10"></textarea>
+	                  	<label for="">Featured Image URL</label>
+	                  	<input type="text" ng-model="bctrl.post.image" placeholder="http://placekitten.com/g/2000/600" />
+	                  	<label for="">by:</label>
+	                  	<input type="text" ng-model="bctrl.post.author" placeholder="Author Name" required/>
+	                  
+	                  	<br>
+	                  	<input type="submit" value="" />
+	                </form>
+	          
+	            </div>
+
+				
 			</div>
 		</div>
 

@@ -111,6 +111,16 @@ app.controller("blogController", ["postsFactory", function(postsFactory){
 	var self = this
 	this.posts = []
 	this.post = {}
+	this.tab = 'blog';
+
+	this.selectTab = function(setTab){
+      self.tab = setTab;
+      console.log(self.tab)
+    }
+
+    this.isSelected = function(checkTab){
+      return self.tab === checkTab;
+    }
 
 	postsFactory
 		.list()
@@ -121,6 +131,24 @@ app.controller("blogController", ["postsFactory", function(postsFactory){
 			console.log(err)
 		})
 
+	this.addPost = function(){
+    	blog.post.createdOn = Date.now();
+      	blog.post.comments = [];
+      	blog.post.likes = 0;
+      	blog.posts.unshift(this.post);
+      	blog.tab = 0;
+      	blog.post ={};
+    }
 
 
+}])
+
+
+app.controller('commentController', [function(){
+	this.comment = {};
+    this.addComment = function(post){
+    	this.comment.createdOn = Date.now();
+      	post.comments.push(this.comment);
+      	this.comment ={};
+    };
 }])
