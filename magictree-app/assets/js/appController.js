@@ -133,12 +133,12 @@ app.controller("blogController", ["postsFactory", function(postsFactory){
 		})
 
 	this.addPost = function(){
-    	blog.post.createdOn = Date.now();
-      	blog.post.comments = [];
-      	blog.post.likes = 0;
-      	blog.posts.unshift(this.post);
-      	blog.tab = 0;
-      	blog.post ={};
+    	self.post.createdOn = Date.now();
+      	self.post.comments = [];
+      	self.post.likes = 0;
+      	self.posts.unshift(this.post);
+      	self.tab = 0;
+      	self.post ={};
     }
 
 

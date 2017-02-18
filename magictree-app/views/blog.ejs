@@ -16,7 +16,7 @@
 				<ul class="section" ng-show="bctrl.isSelected('blog')">
 					<li ng-repeat="post in bctrl.posts">
 						<h1>
-							<span>Dec 3</span> 
+							<span>{{post.createdOn | date}}</span> 
 							<a href="#" ng-click="bctrl.selectTab($index)">{{post.title}}</a>
 						</h1>
 						<span class="connect"> 
